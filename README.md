@@ -1,6 +1,24 @@
-# Ember-precondition
+# ember-precondition
 
-This README outlines the details of collaborating on this Ember addon.
+A Precondition utility library, inspired by guava Precondition class.
+
+## Usage
+
+import Precondition from "ember-precondition/utils/precondition";
+
+Precondition.checkString(variable)
+
+Precondition.checkArray(variable)
+
+Precondition.checkFunction(variable)
+
+Precondition.checkNull(variable)
+
+Precondition.checkNotNull(variable)
+
+Precondition.checkEmpty(variable)
+
+Precondition.checkNotEmpty(variable)
 
 ## Installation
 

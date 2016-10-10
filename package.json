@@ -44,6 +44,7 @@
     "ember-addon"
   ],
   "dependencies": {
+    "ember-lodash": "0.0.10",
     "ember-cli-babel": "^5.1.6"
   },
   "ember-addon": {
