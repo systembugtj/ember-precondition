@@ -33,20 +33,30 @@ const Precondition = Ember.Object.create({
     return _checkIt(target, _lang.isFunction(target), ErrorCode.ERROR_EXPECT_FUNCTION, message);
   },
 
+  /**
+   * Check whether the target is null (undefined treat as null, and return null)
+   * @return null
+   */
   checkNull(target, message) {
-    return _checkIt(target, _lang.isNull(target) || _lang.isUndefined(target), ErrorCode.ERROR_EXPECT_NULL, message);
+    return _checkIt(null, _lang.isNull(target) || _lang.isUndefined(target), ErrorCode.ERROR_EXPECT_NULL, message);
   },
 
   checkNotNull(target, message) {
     return _checkIt(target, !_lang.isNull(target) && !_lang.isUndefined(target), ErrorCode.ERROR_EXPECT_NOT_NULL, message);
   },
 
-  checkNotEmpty(target, message) {
-    return _checkIt(target, !_lang.isEmpty(target), ErrorCode.ERROR_EXPECT_NOT_EMPTY, message);
+  checkEmpty(target, message) {
+    return _checkIt(target, _lang.isEmpty(target) && !_lang.isNumber(target) && !_lang.isFunction(target),
+                    ErrorCode.ERROR_EXPECT_EMPTY, message);
   },
 
-  checkEmpty(target, message) {
-    return _checkIt(target, _lang.isEmpty(target), ErrorCode.ERROR_EXPECT_EMPTY, message);
+  /**
+   * Check whether the target is empty,
+   * @return target
+   */
+  checkNotEmpty(target, message) {
+    return _checkIt(target, !_lang.isEmpty(target) || _lang.isNumber(target) || _lang.isFunction(target),
+                    ErrorCode.ERROR_EXPECT_NOT_EMPTY, message);
   },
 });
 

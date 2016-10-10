@@ -6,6 +6,7 @@ const ErrorCode = {
   ERROR_EXPECT_NOT_NULL: 1004,
   ERROR_EXPECT_EMPTY: 1005,
   ERROR_EXPECT_NOT_EMPTY: 1006,
+  ERROR_EXPECT_FUNCTION: 1007,
 };
 
 export default ErrorCode;

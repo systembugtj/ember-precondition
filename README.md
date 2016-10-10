@@ -12,13 +12,15 @@ Precondition.checkArray(variable)
 
 Precondition.checkFunction(variable)
 
-Precondition.checkNull(variable)
+Precondition.checkNull(variable) // undefined is treated as null, return null instead of undefined.
 
 Precondition.checkNotNull(variable)
 
 Precondition.checkEmpty(variable)
 
 Precondition.checkNotEmpty(variable)
+
+if match the condition, the variable will be returned, otherwise exception is thrown.
 
 ## Installation
 
