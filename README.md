@@ -1,4 +1,4 @@
-# ember-precondition ![alt text](https://travis-ci.org/systembugtj/ember-precondition.svg?branch=master "Build Status")
+# ember-precondition [![Build Status](https://travis-ci.org/systembugtj/ember-precondition.svg?branch=v0.1.0)](https://travis-ci.org/systembugtj/ember-precondition)
 
 A Precondition utility library, inspired by guava Precondition class.
 
