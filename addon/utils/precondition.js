@@ -2,7 +2,7 @@ import Ember from "ember";
 import _lang from "lodash/lang";
 import Assert from "../internal/assert";
 import errorBuilder from "../internal/error-builder";
-import ErrorCode from 'dummy/constants/error-code';
+import ErrorCode from '../constants/error-code';
 
 function _buildError(errorCode, message) {
   errorCode = errorCode || ErrorCode.UNKNOWN_ERROR;
