@@ -1,6 +1,6 @@
-import Ember from "ember";
+import EmberObject from "@ember/object";
 
-const Assert = Ember.Object.create({
+const Assert = EmberObject.create({
   isTrue(condition, error) {
     if (condition === false) {
       throw error;

@@ -1,4 +1,4 @@
-import Ember from "ember";
+import EmberObject from "@ember/object";
 import _lang from "lodash/lang";
 import Assert from "../internal/assert";
 import errorBuilder from "../internal/error-builder";
@@ -20,7 +20,7 @@ function _checkIt(target, condition, errorCode, message, ifTrue = true) {
   return target;
 }
 
-const Precondition = Ember.Object.create({
+const Precondition = EmberObject.create({
   checkArray(target, message) {
     return _checkIt(target, _lang.isArray(target), ErrorCode.ERROR_EXPECT_ARRAY, message);
   },
