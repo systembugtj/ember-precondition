@@ -1,5 +1,13 @@
 import EmberObject from "@ember/object";
-import _lang from "lodash/lang";
+import {
+  isArray,
+  isString,
+  isFunction,
+  isNull,
+  isUndefined,
+  isEmpty,
+  isNumber
+} from "lodash/lang";
 import Assert from "../internal/assert";
 import errorBuilder from "../internal/error-builder";
 import ErrorCode from '../constants/error-code';
@@ -22,15 +30,15 @@ function _checkIt(target, condition, errorCode, message, ifTrue = true) {
 
 const Precondition = EmberObject.create({
   checkArray(target, message) {
-    return _checkIt(target, _lang.isArray(target), ErrorCode.ERROR_EXPECT_ARRAY, message);
+    return _checkIt(target, isArray(target), ErrorCode.ERROR_EXPECT_ARRAY, message);
   },
 
   checkString(target, message) {
-    return _checkIt(target, _lang.isString(target), ErrorCode.ERROR_EXPECT_STRING, message);
+    return _checkIt(target, isString(target), ErrorCode.ERROR_EXPECT_STRING, message);
   },
 
   checkFunction(target, message) {
-    return _checkIt(target, _lang.isFunction(target), ErrorCode.ERROR_EXPECT_FUNCTION, message);
+    return _checkIt(target, isFunction(target), ErrorCode.ERROR_EXPECT_FUNCTION, message);
   },
 
   /**
@@ -38,16 +46,16 @@ const Precondition = EmberObject.create({
    * @return null
    */
   checkNull(target, message) {
-    return _checkIt(null, _lang.isNull(target) || _lang.isUndefined(target), ErrorCode.ERROR_EXPECT_NULL, message);
+    return _checkIt(null, isNull(target) || isUndefined(target), ErrorCode.ERROR_EXPECT_NULL, message);
   },
 
   checkNotNull(target, message) {
-    return _checkIt(target, !_lang.isNull(target) && !_lang.isUndefined(target), ErrorCode.ERROR_EXPECT_NOT_NULL, message);
+    return _checkIt(target, !isNull(target) && !isUndefined(target), ErrorCode.ERROR_EXPECT_NOT_NULL, message);
   },
 
   checkEmpty(target, message) {
-    return _checkIt(target, _lang.isEmpty(target) && !_lang.isNumber(target) && !_lang.isFunction(target),
-                    ErrorCode.ERROR_EXPECT_EMPTY, message);
+    return _checkIt(target, isEmpty(target) && !isNumber(target) && !isFunction(target),
+      ErrorCode.ERROR_EXPECT_EMPTY, message);
   },
 
   /**
@@ -55,8 +63,8 @@ const Precondition = EmberObject.create({
    * @return target
    */
   checkNotEmpty(target, message) {
-    return _checkIt(target, !_lang.isEmpty(target) || _lang.isNumber(target) || _lang.isFunction(target),
-                    ErrorCode.ERROR_EXPECT_NOT_EMPTY, message);
+    return _checkIt(target, !isEmpty(target) || isNumber(target) || isFunction(target),
+      ErrorCode.ERROR_EXPECT_NOT_EMPTY, message);
   },
 });
 
