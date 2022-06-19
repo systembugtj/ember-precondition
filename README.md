@@ -4,6 +4,8 @@ A Precondition utility library, inspired by guava Precondition class.
 
 ## Usage
 
+```javascript
+
 import Precondition from "ember-precondition/utils/precondition";
 
 Precondition.checkString(variable)
@@ -16,13 +18,22 @@ Precondition.checkNull(variable) // undefined is treated as null, return null in
 
 Precondition.checkNotNull(variable)
 
+
 Precondition.checkEmpty(variable)
+
 
 Precondition.checkNotEmpty(variable)
 
+```
+
 if match the condition, the variable will be returned, otherwise exception is thrown.
 
-## Installation
+## Contributing
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+## License
 
 * `git clone` this repository
 * `npm install`
