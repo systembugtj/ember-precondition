@@ -1,4 +1,4 @@
-import EmberObject from "@ember/object";
+import EmberObject from '@ember/object';
 
 const Assert = EmberObject.create({
   isTrue(condition, error) {
@@ -11,7 +11,7 @@ const Assert = EmberObject.create({
     if (condition === true) {
       throw error;
     }
-  }
+  },
 });
 
 export default Assert;

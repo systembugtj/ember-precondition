@@ -5,6 +5,20 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
+    snippetExtensions: [
+      'js',
+      'ts',
+      'coffee',
+      'html',
+      'hbs',
+      'md',
+      'css',
+      'sass',
+      'scss',
+      'less',
+      'emblem',
+      'yaml',
+    ],
   });
 
   /*

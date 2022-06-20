@@ -1,4 +1,4 @@
-import EmberObject from "@ember/object";
+import EmberObject from '@ember/object';
 import {
   isArray,
   isString,
@@ -6,15 +6,15 @@ import {
   isNull,
   isUndefined,
   isEmpty,
-  isNumber
-} from "lodash/lang";
-import Assert from "../internal/assert";
-import errorBuilder from "../internal/error-builder";
+  isNumber,
+} from 'lodash/lang';
+import Assert from '../internal/assert';
+import errorBuilder from '../internal/error-builder';
 import ErrorCode from '../constants/error-code';
 
 function _buildError(errorCode, message) {
   errorCode = errorCode || ErrorCode.UNKNOWN_ERROR;
-  return errorBuilder(errorCode, message || "");
+  return errorBuilder(errorCode, message || '');
 }
 
 function _assertCondition(condition, errorCode, message, ifTrue = true) {
@@ -29,16 +29,38 @@ function _checkIt(target, condition, errorCode, message, ifTrue = true) {
 }
 
 const Precondition = EmberObject.create({
+  /**
+   * Check if given target is array
+   *
+   * @param {any[]} target
+   * @param {string} message
+   * @returns
+   */
   checkArray(target, message) {
-    return _checkIt(target, isArray(target), ErrorCode.ERROR_EXPECT_ARRAY, message);
+    return _checkIt(
+      target,
+      isArray(target),
+      ErrorCode.ERROR_EXPECT_ARRAY,
+      message
+    );
   },
 
   checkString(target, message) {
-    return _checkIt(target, isString(target), ErrorCode.ERROR_EXPECT_STRING, message);
+    return _checkIt(
+      target,
+      isString(target),
+      ErrorCode.ERROR_EXPECT_STRING,
+      message
+    );
   },
 
   checkFunction(target, message) {
-    return _checkIt(target, isFunction(target), ErrorCode.ERROR_EXPECT_FUNCTION, message);
+    return _checkIt(
+      target,
+      isFunction(target),
+      ErrorCode.ERROR_EXPECT_FUNCTION,
+      message
+    );
   },
 
   /**
@@ -46,16 +68,30 @@ const Precondition = EmberObject.create({
    * @return null
    */
   checkNull(target, message) {
-    return _checkIt(null, isNull(target) || isUndefined(target), ErrorCode.ERROR_EXPECT_NULL, message);
+    return _checkIt(
+      null,
+      isNull(target) || isUndefined(target),
+      ErrorCode.ERROR_EXPECT_NULL,
+      message
+    );
   },
 
   checkNotNull(target, message) {
-    return _checkIt(target, !isNull(target) && !isUndefined(target), ErrorCode.ERROR_EXPECT_NOT_NULL, message);
+    return _checkIt(
+      target,
+      !isNull(target) && !isUndefined(target),
+      ErrorCode.ERROR_EXPECT_NOT_NULL,
+      message
+    );
   },
 
   checkEmpty(target, message) {
-    return _checkIt(target, isEmpty(target) && !isNumber(target) && !isFunction(target),
-      ErrorCode.ERROR_EXPECT_EMPTY, message);
+    return _checkIt(
+      target,
+      isEmpty(target) && !isNumber(target) && !isFunction(target),
+      ErrorCode.ERROR_EXPECT_EMPTY,
+      message
+    );
   },
 
   /**
@@ -63,8 +99,12 @@ const Precondition = EmberObject.create({
    * @return target
    */
   checkNotEmpty(target, message) {
-    return _checkIt(target, !isEmpty(target) || isNumber(target) || isFunction(target),
-      ErrorCode.ERROR_EXPECT_NOT_EMPTY, message);
+    return _checkIt(
+      target,
+      !isEmpty(target) || isNumber(target) || isFunction(target),
+      ErrorCode.ERROR_EXPECT_NOT_EMPTY,
+      message
+    );
   },
 });
 
