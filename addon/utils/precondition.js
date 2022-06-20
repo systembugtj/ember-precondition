@@ -34,7 +34,7 @@ const Precondition = EmberObject.create({
    *
    * @param {any[]} target
    * @param {string} message
-   * @returns
+   * @returns {boolean} whether target is array
    */
   checkArray(target, message) {
     return _checkIt(
